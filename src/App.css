@@ -6,17 +6,28 @@
 }
 
 :root{
-  --primary: white;
-  --blue: #276afb;
-  --red: #ff0044;
-  --dark: #242424;
+  --primary: #2e2220;
+  --blue: #0e0fed;
+  --red:#ff5e6c;
+  --dark:  #1c2237;
   --green: #1aa538;
   --dark-blue: #1c2237;
   --off-white: #fafafa;
   --chroma-blue: #0660e9;
-  --background: bisque;
+  --background: #fff5d7;
+  --background-dark:#f7efd6;
+
+  /* Ragin Beige: #fff5d7
+
+Coral Pink: #ff5e6c
+
+Sleuthe Yellow: #feb300
+
+Pink Leaf: #ffaaab */
+
 }
 
 body {
+  color: var(--dark);
   background-color: var(--background);
 }

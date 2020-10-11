@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa'
-import {MdGrain} from 'react-icons/md'
+import {MdLeakRemove} from 'react-icons/md'
 import Button from './Button'
 import './Navbar.css'
 
@@ -28,7 +28,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container container">
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}  >
-                    <MdGrain className="navbar-icon"/>
+                    <MdLeakRemove className="navbar-icon"/>
                     Shorten
                 </Link>
                 <div className="menu-icon" onClick={clickHandler} >              
