@@ -1,3 +1,11 @@
 .profile{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.profile-container {
+    margin: 1rem;
+    text-align: center;
 }

@@ -1,0 +1,15 @@
+form input{
+    margin: 15px;
+    padding: 12px 26px;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    width: 60vw;
+}
+
+@media screen and (max-width: 820px){
+    form input {
+        width: 100%;
+        margin: 15px 0 15px 0;
+    }
+}
