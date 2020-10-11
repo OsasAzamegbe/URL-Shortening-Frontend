@@ -3,17 +3,16 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import SignUp from './components/pages/signup/SignUp'
+import Profile from './components/pages/profile/Profile'
 
 
 function App() {
   return (
     <div>
-      <header className="App-header">
-        <h1>Shorten</h1>
-      </header>
       <Router>
       <Navbar/>
       <Switch>
+        <Route path='/profile' component={Profile}/>
         <Route path='/sign-up' component={SignUp}/>
       </Switch>
     </Router>

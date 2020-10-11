@@ -14,4 +14,9 @@
   --dark-blue: #1c2237;
   --off-white: #fafafa;
   --chroma-blue: #0660e9;
+  --background: bisque;
+}
+
+body {
+  background-color: var(--background);
 }
