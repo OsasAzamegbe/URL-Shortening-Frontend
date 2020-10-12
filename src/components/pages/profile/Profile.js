@@ -10,7 +10,9 @@ const Profile = () => {
             <div className="profile-container">
                 <h1>Welcome, User</h1>
                 <Form/>
-                <List heading="Url List"/>
+                <List 
+                heading="Url List"
+                items={[1,2,3,4]}/>
             </div>            
         </div>
     )
