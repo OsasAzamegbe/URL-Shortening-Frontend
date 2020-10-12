@@ -1,0 +1,50 @@
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+.todo-list {
+    min-width: 50vmin;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    font-size: 1.25rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+    border-radius: 0.25rem;
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.315);
+}
+.filter-todo {
+    padding: 1rem;
+}
+.todo li {
+    flex: 1;
+}
+.todo-item {
+    padding: 0rem 0.5rem;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.trash-btn,
+.complete-btn {
+  background: #6e0f0f;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  
+}
+.complete-btn {
+  background: rgb(54, 97, 54);
+}
