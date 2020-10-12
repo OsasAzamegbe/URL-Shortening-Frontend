@@ -86,7 +86,7 @@
 
 .red:hover{
     color: white;
-    background-color: var(--pin-leaf);
+    background-color: var(--primary);
     transition: all 0.2s ease-out;
 }
 
