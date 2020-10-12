@@ -27,7 +27,7 @@ const SignUp = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        const url = `localhost:5000/api/v1/register`
+        const url = `http://localhost:5000/api/v1/register`
         const postData = {
             username,
             email,
@@ -42,8 +42,14 @@ const SignUp = () => {
             }
         })
 
-        const data = await response.json()
-        console.log(data)
+        // const data = await response.json()
+        // console.log(data, response.status)
+
+        if(response.status === 201){
+            setUsername("")
+            setEmail("")
+            setPassword("")
+        }
 
     }
 
@@ -57,6 +63,7 @@ const SignUp = () => {
                 <form onSubmit={submitHandler} className='sign-up-container'>
                     <input
                     onChange={usernameHandler}
+                    value={username}
                     className='sign-up-input'
                     name='username'
                     type='text'
@@ -64,6 +71,7 @@ const SignUp = () => {
                     />
                     <input
                     onChange={emailHandler}
+                    value={email}
                     className='sign-up-input'
                     name='email'
                     type='email'
@@ -71,6 +79,7 @@ const SignUp = () => {
                     />
                     <input
                     onChange={passwordHandler}
+                    value={password}
                     className='sign-up-input'
                     name='password'
                     type='password'
