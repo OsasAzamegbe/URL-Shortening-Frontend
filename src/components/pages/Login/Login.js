@@ -1,17 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Button from '../../Button';
 import './Login.css';
 
 
-const Login = () => {
+const Login = ({setLoggedIn, setAuthorization}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [Authorization, setAuthorization] = useState("")
-
-    useEffect(() =>{
-        console.log("auth-token:", Authorization)
-    },[Authorization])
 
 
     const emailHandler = (e) => {
@@ -45,6 +40,7 @@ const Login = () => {
 
         if(response.status === 200){
             setAuthorization(token)
+            setLoggedIn(true)
             setEmail("")
             setPassword("")
         }

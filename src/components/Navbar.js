@@ -6,10 +6,10 @@ import Button from './Button'
 import './Navbar.css'
 
 
-const Navbar = () => {
+const Navbar = ({loggedIn}) => {
+
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
-    const [loggedIn, setLoggedIn] = useState(false)
 
     const clickHandler = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);

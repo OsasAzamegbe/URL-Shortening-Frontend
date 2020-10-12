@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -8,14 +8,17 @@ import Login from './components/pages/login/Login'
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [Authorization, setAuthorization] = useState("")
+
   return (
     <div>
       <Router>
-      <Navbar/>
+      <Navbar loggedIn={loggedIn} />
       <Switch>
-        <Route path='/profile' component={Profile}/>
+        <Route path='/profile' render={(props) => <Profile {...props} Authorization={Authorization} />}/>
         <Route path='/sign-up' component={SignUp}/>
-        <Route path='/login' component={Login}/>
+        <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn} setAuthorization={setAuthorization} />}/>
       </Switch>
     </Router>
     </div>

@@ -4,7 +4,7 @@ import Form from '../../Form'
 import List from '../../List'
 
 
-const Profile = () => {
+const Profile = ({Authorization}) => {
     return (
         <div className="profile">
             <div className="profile-container">
