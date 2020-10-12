@@ -3,34 +3,34 @@ import Button from '../../Button';
 import './SignUp.css';
 
 
-const Products = () => {
+const SignUp = () => {
     return (
         <div>
-            <section className='footer-container footer-subscription sign-up-section'>
-                <p className='footer-subscription-heading'>
+            <section className='sign-up-subscription'>
+                <p className='sign-up-subscription-heading'>
                 Sign Up
                 </p>
-                <div className='input-areas'>
-                <form>
+                <div >
+                <form className='sign-up-container'>
                     <input
-                    className='footer-input'
+                    className='sign-up-input'
                     name='name'
                     type='text'
                     placeholder='Your Name'
                     />
                     <input
-                    className='footer-input'
+                    className='sign-up-input'
                     name='email'
                     type='email'
                     placeholder='Your Email'
                     />
                     <input
-                    className='footer-input'
+                    className='sign-up-input'
                     name='password'
                     type='password'
                     placeholder='New Password'
                     />
-                    <Button buttonStyle='btn--outline'>Sign Up</Button>
+                    <Button buttonStyle='btn--outline' children={"Sign Up"}/>
                 </form>
                 </div>
             </section>        
@@ -38,4 +38,4 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default SignUp;
