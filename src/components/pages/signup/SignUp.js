@@ -14,9 +14,9 @@ const SignUp = () => {
                 <form className='sign-up-container'>
                     <input
                     className='sign-up-input'
-                    name='name'
+                    name='username'
                     type='text'
-                    placeholder='Your Name'
+                    placeholder='Your Username'
                     />
                     <input
                     className='sign-up-input'
