@@ -7,7 +7,7 @@
 
 :root{
   --primary: #2e2220;
-  --pin-lLeaf: #ffaaab;
+  --pin-leaf: #ffaaab;
   --blue: #0e0fed;
   --red:#ff5e6c;
   --dark:  #1c2237;
@@ -17,6 +17,7 @@
   --chroma-blue: #0660e9;
   --background: #fff5d7;
   --background-dark:#f7eccc;
+  --sleuthe-yellow: #feb300
 
   /* Ragin Beige: #fff5d7
 

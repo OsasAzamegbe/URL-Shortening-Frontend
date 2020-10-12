@@ -80,9 +80,16 @@
 
 .red {
     background-color: var(--red);
-    color: white;
+    color: var(--primary);
     border: none;
 }
+
+.red:hover{
+    color: white;
+    background-color: var(--pin-leaf);
+    transition: all 0.2s ease-out;
+}
+
 .primary {
     background-color: var(--dark);
     color: white;
