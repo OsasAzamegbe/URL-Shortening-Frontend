@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -8,17 +8,26 @@ import Login from './components/pages/login/Login'
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [Authorization, setAuthorization] = useState("")
+  const [user, setUser] = useState({})
+
+  useEffect(() => {
+
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+
+  }, [])
 
   return (
     <div>
       <Router>
-      <Navbar loggedIn={loggedIn} />
+      <Navbar user={user} />
       <Switch>
-        <Route path='/profile' render={(props) => <Profile {...props} Authorization={Authorization} />}/>
+        <Route path='/profile' render={(props) => <Profile {...props} user={user} />}/>
         <Route path='/sign-up' component={SignUp}/>
-        <Route path='/login' render={(props) => <Login {...props} setLoggedIn={setLoggedIn} setAuthorization={setAuthorization} />}/>
+        <Route path='/login' render={(props) => <Login {...props} setUser={setUser}/>}/>
       </Switch>
     </Router>
     </div>

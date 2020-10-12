@@ -3,7 +3,7 @@ import Button from '../../Button';
 import './Login.css';
 
 
-const Login = ({setLoggedIn, setAuthorization}) => {
+const Login = ({setUser}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -35,12 +35,11 @@ const Login = ({setLoggedIn, setAuthorization}) => {
         })
 
         const data = await response.json()
-        const token = data.token
-        // console.log(token, response.status)        
+        const user = data.user       
 
         if(response.status === 200){
-            setAuthorization(token)
-            setLoggedIn(true)
+            localStorage.setItem('user', JSON.stringify(user))
+            setUser(user)
             setEmail("")
             setPassword("")
         }
