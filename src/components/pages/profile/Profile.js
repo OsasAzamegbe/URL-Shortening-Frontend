@@ -42,7 +42,7 @@ const Profile = ({user}) => {
                 <h1>Welcome, {user.username}</h1>
                 <Form/>
                 <List 
-                heading="Url List"
+                heading={"Url List"}
                 items={urls}/>
             </div>            
         </div>

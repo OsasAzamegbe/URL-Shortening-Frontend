@@ -2,7 +2,7 @@ import React from 'react';
 import './ListItem.css'
 
 
-const ListItem = () => {
+const ListItem = ({item}) => {
 
     // const completeHandler = () => {
     //     setitems(items.map((item) => {
@@ -22,7 +22,7 @@ const ListItem = () => {
 
     return (
         <div className="item">
-            <li className={`item-item `} >Url Item</li>
+            <li className={`item-item `} >{item.shortUrl}</li>
         </div> 
     );
 };

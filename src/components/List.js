@@ -8,14 +8,14 @@ const List = ({items, heading}) => {
         <div className="list-container">
             {heading ?
             <div className="list-heading-wrapper">
-                <p className="list-heading">HEADING</p>
+                <p className="list-heading">{heading}</p>
             </div>
             : ""}
             
             <ul className="list-list">
                 {
                     items.map((item, index) => (
-                    <ListItem key={index}/>
+                    <ListItem key={index} item={item}/>
                     ))
                 }
 
