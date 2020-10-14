@@ -13,9 +13,12 @@ const SignUp = () => {
     let history = useHistory()
 
     const loginRedirect = () => {        
-        history.push("/app/login", {
+        history.push({
+            pathname: "/app/login", 
+            state: {
             emailInput: email,
             passwordInput: password
+            }
         })
     }
 
