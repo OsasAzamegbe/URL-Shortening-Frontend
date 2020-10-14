@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from './Button'
 import './Form.css'
 
 
-const Form = ({inputText, setInputText, todos, setTodos, id, setId}) => {
+const Form = ({setLongUrl}) => {
+
+    const [inputText, setInputText] = useState("")
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -11,20 +13,14 @@ const Form = ({inputText, setInputText, todos, setTodos, id, setId}) => {
 
     const submitTodoHandler = (e) => {
         e.preventDefault()
-        const newTodo = {
-            text: inputText,
-            done: false,
-            id: id
-        }
-        setTodos([...todos, newTodo])
-        setId(id + 1)
+        setLongUrl(inputText)
         setInputText("")
     }
 
     return (
         <div>
-            <form>
-                <input type="text" placeholder="paste URL" />
+            <form onSubmit={submitTodoHandler} >
+                <input onChange={inputTextHandler} value={inputText} type="url" placeholder="paste URL" />
                 <Button type="submit" children="Shorten" buttonColor="red" buttonSize="btn--large"/>
             </form>
         </div>
