@@ -4,11 +4,11 @@ import './Logout.css'
 
 const Logout = () => {
 
-    useEffect()
+    // useEffect()
 
     return (
-        <div>
-
+        <div className="logout-container">
+            <p className="logout-headline">You Have Been Logged Out!</p>
         </div>
     )
 }

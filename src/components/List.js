@@ -5,7 +5,7 @@ import './List.css'
 
 const List = ({items, heading}) => {
     return (
-        <div className="list-container">
+        <div className="list-container"></div>
             {heading ?
             <div className="list-heading-wrapper">
                 <p className="list-heading">{heading}</p>

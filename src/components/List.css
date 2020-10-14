@@ -3,9 +3,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 2rem;
 }
 .list-list {
     min-width: 50vmin;
     list-style: none;
     padding: 0rem 0.5rem;
+    text-decoration: none;
 }

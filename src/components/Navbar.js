@@ -27,7 +27,7 @@ const Navbar = ({user}) => {
     return (
         <nav className="navbar">
             <div className="navbar-container container">
-                <Link to="/" className="navbar-logo" onClick={closeMobileMenu}  >
+                <Link to="/app" className="navbar-logo" onClick={closeMobileMenu}  >
                     <MdLeakRemove className="navbar-icon"/>
                     Shorten
                 </Link>
@@ -38,12 +38,12 @@ const Navbar = ({user}) => {
                 { Object.keys(user).length !== 0 ?
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
-                            <Link to="/profile" className="nav-links" onClick={closeMobileMenu} >
+                            <Link to="/app/profile" className="nav-links" onClick={closeMobileMenu} >
                                 Profile
                             </Link>
                         </li>
                         <li className="nav-btn">
-                            <Link to="/logout" className="btn-link" onClick={closeMobileMenu} >
+                            <Link to="/app/logout" className="btn-link" onClick={closeMobileMenu} >
                                 {button ? 
                                 <Button buttonStyle="btn--outline">LOG OUT</Button>
                                 :
@@ -55,12 +55,12 @@ const Navbar = ({user}) => {
                     :
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
-                            <Link to="/login" className="nav-links" onClick={closeMobileMenu} >
+                            <Link to="/app/login" className="nav-links" onClick={closeMobileMenu} >
                                 Login
                             </Link>
                         </li>
                         <li className="nav-btn">
-                            <Link to="/sign-up" className="btn-link" onClick={closeMobileMenu} >
+                            <Link to="/app/sign-up" className="btn-link" onClick={closeMobileMenu} >
                                 {button ? 
                                 <Button buttonStyle="btn--outline">SIGN UP</Button>
                                 :

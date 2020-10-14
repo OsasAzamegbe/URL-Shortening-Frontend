@@ -1,0 +1,12 @@
+.logout-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.logout-headline{
+    color: var(--red);
+    font-size: xx-large;
+    text-align: center;
+}
