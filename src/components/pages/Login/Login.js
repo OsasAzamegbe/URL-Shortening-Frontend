@@ -1,15 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom'
 
 import Button from '../../Button';
 import './Login.css';
 
 
-const Login = ({setUser}) => {
+const Login = ({setUser, emailInput, passwordInput}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     let history = useHistory()
+
+    useEffect(() => {
+        if (emailInput && passwordInput){
+            setEmail(emailInput)
+            setPassword(passwordInput)
+        }
+    }, [])
 
     const profileRedirect = () => {        
         history.push("/app/profile")

@@ -13,7 +13,10 @@ const SignUp = () => {
     let history = useHistory()
 
     const loginRedirect = () => {        
-        history.push("/app/login")
+        history.push("/app/login", {
+            emailInput: email,
+            passwordInput: password
+        })
     }
 
     
