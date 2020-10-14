@@ -2,9 +2,12 @@ import React, {useEffect} from 'react'
 import './Logout.css'
 
 
-const Logout = () => {
+const Logout = ({setUser}) => {
 
-    // useEffect()
+    useEffect(() => {
+        setUser({})
+        localStorage.clear()
+    }, [])
 
     return (
         <div className="logout-container">

@@ -29,7 +29,7 @@ function App() {
         <Route path='/app/profile' exact render={(props) => <Profile {...props} user={user} />}/>
         <Route path='/app/sign-up' exact component={SignUp}/>
         <Route path='/app/login' exact render={(props) => <Login {...props} setUser={setUser}/>}/>
-        <Route path='/app/logout' exact component={Logout}/>
+        <Route path='/app/logout' exact render={(props) => <Logout {...props} setUser={setUser} />} />
       </Switch>
     </Router>
     </div>
