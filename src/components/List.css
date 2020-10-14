@@ -1,0 +1,11 @@
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.list-list {
+    min-width: 50vmin;
+    list-style: none;
+    padding: 0rem 0.5rem;
+}

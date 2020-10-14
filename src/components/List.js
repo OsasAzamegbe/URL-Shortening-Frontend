@@ -14,7 +14,7 @@ const List = ({items, heading}) => {
             
             <ul className="list-list">
                 {
-                    items.map((item, index) => (
+                    [1,2,3,4].map((item, index) => (
                     <ListItem key={index} item={item}/>
                     ))
                 }
