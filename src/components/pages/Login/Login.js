@@ -16,7 +16,7 @@ const Login = ({setUser, emailInput, passwordInput}) => {
             setEmail(emailInput)
             setPassword(passwordInput)
         }
-    }, [])
+    }, [emailInput, passwordInput])
 
     const profileRedirect = () => {        
         history.push("/app/profile")
