@@ -19,7 +19,7 @@
 
 .btn--primary{
     background-color: var(--primary);
-    color: var(--dark);
+    color: var(--off-white);
     border: 1px solid var(--primary)
 }
 

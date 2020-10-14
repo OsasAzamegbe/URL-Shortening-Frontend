@@ -1,3 +1,12 @@
 .home-container{
-    margin: 
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home h1{
+    text-align: center;
+    margin: 24px;
 }
