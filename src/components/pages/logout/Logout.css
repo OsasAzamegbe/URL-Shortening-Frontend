@@ -6,7 +6,7 @@
 }
 
 .logout-headline{
-    color: var(--red);
+    color: var(--primary);
     font-size: xx-large;
     text-align: center;
 }
