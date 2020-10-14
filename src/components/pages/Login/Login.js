@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom'
+
 import Button from '../../Button';
 import './Login.css';
 
@@ -7,7 +9,11 @@ const Login = ({setUser}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    let history = useHistory()
 
+    const profileRedirect = () => {        
+        history.push("/app/profile")
+    }
 
     const emailHandler = (e) => {
         setEmail(e.target.value)
@@ -42,6 +48,7 @@ const Login = ({setUser}) => {
             setUser(user)
             setEmail("")
             setPassword("")
+            profileRedirect()
         }
 
     }

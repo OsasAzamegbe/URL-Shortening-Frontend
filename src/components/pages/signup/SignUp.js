@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
 import Button from '../../Button';
 import './SignUp.css';
 
@@ -8,6 +10,11 @@ const SignUp = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    let history = useHistory()
+
+    const loginRedirect = () => {        
+        history.push("/app/login")
+    }
 
     
     const usernameHandler = (e) => {
@@ -49,6 +56,7 @@ const SignUp = () => {
             setUsername("")
             setEmail("")
             setPassword("")
+            loginRedirect()
         }
 
     }
