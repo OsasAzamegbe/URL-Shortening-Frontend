@@ -15,18 +15,19 @@ const Profile = ({user}) => {
         const postUrl = async () => {
             const loggedInUser = localStorage.getItem("user");
             if (loggedInUser) {
-
                 const foundUser = JSON.parse(loggedInUser);
                 const token = foundUser.token
                 const url = `http://localhost:5000/api/v1/shorten`
+                const body = {
+                    "url": longUrl
+                }
                 const response = await fetch(url,{
                     method: "POST",
                     headers: {
+                        'Content-Type': 'application/json',
                         Authorization: token
                     },
-                    body: {
-                        url: longUrl
-                    }
+                    body: JSON.stringify(body)
                 })
 
                 const data = await response.json()
