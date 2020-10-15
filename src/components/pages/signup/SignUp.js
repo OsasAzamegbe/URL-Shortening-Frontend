@@ -4,13 +4,46 @@ import { useHistory } from "react-router-dom";
 import Button from '../../Button';
 import './SignUp.css';
 
+ 
+// A custom validation function. This must return an object
+// which keys are symmetrical to our values/initialValues
+const validate = values => {
+
+    const errors = {};
+    if (!values.username) {
+        errors.username = 'Required';
+    } else if (values.username.length > 20) {
+        errors.username = 'Must be 20 characters or less';
+    }
+
+    if (!values.password) {
+        errors.password = 'Required';
+    } else if (values.password.length < 8) {
+        errors.password = 'Must be longer than 8 characters';
+    } else if (values.password.length > 100) {
+        errors.password = 'Must be less than 100 characters';
+    }
+
+    if (!values.email) {
+        errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = 'Invalid email address';
+    } else if (values.email.length > 100) {
+        errors.email = 'Must be 100 characters or less';
+    }
+
+    return errors;
+};
+
 
 const SignUp = () => {
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState({})
     let history = useHistory()
+
 
     const loginRedirect = () => {        
         history.push({
