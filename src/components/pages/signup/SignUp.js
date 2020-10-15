@@ -82,6 +82,7 @@ const SignUp = () => {
                     name='username'
                     type='text'
                     placeholder='Your Username'
+                    required
                     />
                     <input
                     onChange={emailHandler}
@@ -90,6 +91,7 @@ const SignUp = () => {
                     name='email'
                     type='email'
                     placeholder='Your Email'
+                    required
                     />
                     <input
                     onChange={passwordHandler}
@@ -98,6 +100,7 @@ const SignUp = () => {
                     name='password'
                     type='password'
                     placeholder='New Password'
+                    required
                     />
                     <Button buttonStyle='btn--outline' children={"Sign Up"}/>
                 </form>

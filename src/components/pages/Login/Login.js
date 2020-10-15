@@ -76,6 +76,7 @@ const Login = ({setUser}) => {
                     name='email'
                     type='email'
                     placeholder='Your Email'
+                    required
                     />
                     <input
                     onChange={passwordHandler}
@@ -84,6 +85,7 @@ const Login = ({setUser}) => {
                     name='password'
                     type='password'
                     placeholder='Your Password'
+                    required
                     />
                     <Button buttonStyle='btn--outline' children={"Login"}/>
                 </form>
