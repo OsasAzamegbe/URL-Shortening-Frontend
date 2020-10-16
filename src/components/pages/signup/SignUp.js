@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
 import Button from '../../Button';
@@ -25,8 +25,9 @@ const SignUp = () => {
         })
     }
 
-    const errorsPresent = () => {
-        return Object.keys(errors).length > 0
+    const errorsAbsent = () => {
+        console.log(errors, "here")
+        return Object.keys(errors).length === 0
     }
 
     const validate = values => {
@@ -65,9 +66,7 @@ const SignUp = () => {
             password
         }
 
-        const validated = validate(values)
-        setErrors(validated)
-
+        return validate(values)
     }
     
     const usernameHandler = (e) => {
@@ -85,11 +84,8 @@ const SignUp = () => {
         
     }
 
-    const submitHandler = async (e) => {
-        e.preventDefault()
-
-        validateSignUp()
-        if (!errorsPresent()){
+    const postSignUp = async () => {
+        if (errorsAbsent() && username && email && password){
             const url = `http://localhost:5000/api/v1/register`
             const postData = {
                 username,
@@ -115,9 +111,21 @@ const SignUp = () => {
             if(response.status === 201){
                 loginRedirect()
             }
-        }       
-
+        }   
     }
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+    
+        const validated = validateSignUp()
+        setErrors(validated)
+    }
+
+    useEffect( () => {
+        console.log(errors)
+        console.log(errorsAbsent())
+        postSignUp()
+    }, [errors])
 
     return (
         <div>
@@ -135,7 +143,7 @@ const SignUp = () => {
                     type='text'
                     placeholder='Your Username'
                     />
-                    {errors.username ? <div>{errors.username}</div> : null}
+                    {errors.username ? <div className="errors">{errors.username}</div> : null}
                     <input
                     onChange={emailHandler}
                     value={email}
@@ -143,7 +151,7 @@ const SignUp = () => {
                     name='email'
                     placeholder='Your Email'
                     />
-                    {errors.email ? <div>{errors.email}</div> : null}
+                    {errors.email ? <div className="errors">{errors.email}</div> : null}
                     <input
                     onChange={passwordHandler}
                     value={password}
@@ -152,7 +160,7 @@ const SignUp = () => {
                     type='password'
                     placeholder='New Password'
                     />
-                    {errors.password ? <div>{errors.password}</div> : null}
+                    {errors.password ? <div className="errors">{errors.password}</div> : null}
                     <Button buttonStyle='btn--outline' children={"Sign Up"}/>
                 </form>
                 </div>
