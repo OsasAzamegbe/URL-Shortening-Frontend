@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import Button from '../../Button';
 import './SignUp.css';
+import {validate} from '../../../utils/Validate'
 
 
 
@@ -19,44 +20,15 @@ const SignUp = () => {
         history.push({
             pathname: "/app/login", 
             state: {
-            emailInput: email,
-            passwordInput: password
+                emailInput: email,
+                passwordInput: password
             }
         })
     }
 
     const errorsAbsent = () => {
-        console.log(errors, "here")
         return Object.keys(errors).length === 0
     }
-
-    const validate = values => {
-
-        const errors = {};
-        if (!values.username || values.username.trim() === "") {
-            errors.username = '* Required';
-        } else if (values.username.length > 20) {
-            errors.username = 'Must be 20 characters or less';
-        }
-    
-        if (!values.password || values.password.trim() === "") {
-            errors.password = '* Required';
-        } else if (values.password.length < 8) {
-            errors.password = 'Must be longer than 8 characters';
-        } else if (values.password.length > 100) {
-            errors.password = 'Must be less than 100 characters';
-        }
-    
-        if (!values.email || values.email.trim() === "") {
-            errors.email = '* Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
-        } else if (values.email.length > 100) {
-            errors.email = 'Must be 100 characters or less';
-        }
-    
-        return errors;
-    };
 
 
     const validateSignUp = () => {
@@ -71,7 +43,7 @@ const SignUp = () => {
     
     const usernameHandler = (e) => {
         setUsername(e.target.value)
-        
+
     }
 
     const emailHandler = (e) => {
@@ -105,9 +77,6 @@ const SignUp = () => {
                 }
             })
 
-            // const data = await response.json()
-            // console.log(data, response.status)
-
             if(response.status === 201){
                 loginRedirect()
             }
@@ -122,8 +91,6 @@ const SignUp = () => {
     }
 
     useEffect( () => {
-        console.log(errors)
-        console.log(errorsAbsent())
         postSignUp()
     }, [errors])
 

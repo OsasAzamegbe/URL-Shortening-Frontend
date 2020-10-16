@@ -3,12 +3,14 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 import Button from '../../Button';
 import './Login.css';
+import {validate} from '../../../utils/Validate'
 
 
 const Login = ({setUser}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState({})
     let history = useHistory()
     const location = useLocation()
 
@@ -18,6 +20,20 @@ const Login = ({setUser}) => {
             setPassword(location.state.passwordInput)
         }
     }, [location])
+
+    const errorsAbsent = () => {
+        return Object.keys(errors).length === 0
+    }
+
+
+    const validateLogin = () => {
+        const values = {
+            email,
+            password
+        }
+
+        return validate(values)
+    }
 
     const profileRedirect = () => {        
         history.push("/app/profile")
@@ -34,32 +50,44 @@ const Login = ({setUser}) => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        const url = `http://localhost:5000/api/v1/login`
-        const postData = {
-            email,
-            password
-        }
 
-        const response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(postData),
-            headers: {
-                "Content-Type": "application/json"
+        const validated = validateLogin()
+        setErrors(validated)
+    }
+
+    const postLogin = async () => {
+        if (errorsAbsent() && email && password) {
+            const url = `http://localhost:5000/api/v1/login`
+            const postData = {
+                email,
+                password
             }
-        })
 
-        const data = await response.json()
-        const user = data.user       
-
-        if(response.status === 200){
-            localStorage.setItem('user', JSON.stringify(user))
-            setUser(user)
             setEmail("")
             setPassword("")
-            profileRedirect()
-        }
 
+            const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(postData),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            const data = await response.json()
+            const user = data.user       
+
+            if(response.status === 200){
+                localStorage.setItem('user', JSON.stringify(user))
+                setUser(user)
+                profileRedirect()
+            }
+        }
     }
+    
+    useEffect( () => {
+        postLogin()
+    }, [errors])
 
     return (
         <div>
@@ -74,10 +102,9 @@ const Login = ({setUser}) => {
                     value={email}
                     className='login-input'
                     name='email'
-                    type='email'
                     placeholder='Your Email'
-                    required
                     />
+                    {errors.email ? <div className="errors">{errors.email}</div> : null}
                     <input
                     onChange={passwordHandler}
                     value={password}
@@ -85,8 +112,8 @@ const Login = ({setUser}) => {
                     name='password'
                     type='password'
                     placeholder='Your Password'
-                    required
                     />
+                    {errors.password ? <div className="errors">{errors.password}</div> : null}
                     <Button buttonStyle='btn--outline' children={"Login"}/>
                 </form>
                 </div>
