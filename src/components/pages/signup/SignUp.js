@@ -32,13 +32,13 @@ const SignUp = () => {
     const validate = values => {
 
         const errors = {};
-        if (!values.username) {
+        if (!values.username || values.username.trim() === "") {
             errors.username = '* Required';
         } else if (values.username.length > 20) {
             errors.username = 'Must be 20 characters or less';
         }
     
-        if (!values.password) {
+        if (!values.password || values.password.trim() === "") {
             errors.password = '* Required';
         } else if (values.password.length < 8) {
             errors.password = 'Must be longer than 8 characters';
@@ -46,7 +46,7 @@ const SignUp = () => {
             errors.password = 'Must be less than 100 characters';
         }
     
-        if (!values.email) {
+        if (!values.email || values.email.trim() === "") {
             errors.email = '* Required';
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
             errors.email = 'Invalid email address';
@@ -141,7 +141,6 @@ const SignUp = () => {
                     value={email}
                     className='sign-up-input'
                     name='email'
-                    type='email'
                     placeholder='Your Email'
                     />
                     {errors.email ? <div>{errors.email}</div> : null}
