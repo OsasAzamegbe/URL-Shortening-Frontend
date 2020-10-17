@@ -29,7 +29,7 @@ function App() {
       <Navbar user={user} />
       <Switch>
         <Route path='/app' exact component={Home}/>
-        <Route path='/app/profile' exact render={(props) => <Profile {...props} user={user} />}/>
+        <Route path='/app/profile' exact render={(props) => <Profile {...props} user={user} alerts={alerts} setAlerts={setAlerts}/>}/>
         <Route path='/app/sign-up' exact render={(props) => <SignUp {...props} alerts={alerts} setAlerts={setAlerts}/>}/>
         <Route path='/app/login' exact render={(props) => <Login {...props} setUser={setUser} alerts={alerts} setAlerts={setAlerts}/>}/>
         <Route path='/app/logout' exact render={(props) => <Logout {...props} setUser={setUser} />} />

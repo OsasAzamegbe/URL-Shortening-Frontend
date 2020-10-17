@@ -4,7 +4,7 @@ import Form from '../../Form'
 import List from '../../List'
 
 
-const Profile = ({user}) => {
+const Profile = ({user, alerts, setAlerts}) => {
 
     const [urls, setUrls] = useState([])
     const [longUrl, setLongUrl] = useState("")
@@ -31,8 +31,32 @@ const Profile = ({user}) => {
                 })
 
                 const data = await response.json()
-                console.log(data)
                 setLongUrl("")
+
+                if(response.status === 201){
+                    setAlerts({
+                        ...alerts,
+                        signup: {
+                            text: data.message,
+                            success: true
+                        }
+                    })
+                } else{
+                    setAlerts({
+                        ...alerts,
+                        signup: {
+                            text: data.message,
+                            success: false
+                        }
+                    })
+                }
+    
+                setTimeout(() => {
+                    setAlerts({
+                        ...alerts,
+                        signup: {}
+                    })
+                }, 4000)
 
             }   
         }
@@ -71,7 +95,16 @@ const Profile = ({user}) => {
     return (
         <div className="profile">
             <div className="profile-container">
-                <h1>Welcome, {user.username}</h1>
+                <h1 className="profile-heading">Welcome, {user.username}</h1>
+                
+                {
+                    alerts.signup ?
+                    <div className={`alert ${alerts.signup.success ? "alert-success" : null}`}>
+                        <p className="alert-text" >{alerts.signup.text}</p>
+                    </div>
+                    : null
+                }
+
                 <Form 
                 setLongUrl={setLongUrl} />
 

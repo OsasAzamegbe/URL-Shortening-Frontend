@@ -14,7 +14,7 @@ const List = ({items, heading}) => {
             
             <ul className="list-list">
                 {
-                    items.reverse().map((item, index) => (
+                    items.map((item, index) => (
                     <ListItem key={index} item={item}/>
                     ))
                 }
