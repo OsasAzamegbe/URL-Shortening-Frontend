@@ -11,6 +11,7 @@ import Home from './components/pages/home/Home'
 
 function App() {
   const [user, setUser] = useState({})
+  const [alerts, setAlerts] = useState({})
 
   useEffect(() => {
 
@@ -29,8 +30,8 @@ function App() {
       <Switch>
         <Route path='/app' exact component={Home}/>
         <Route path='/app/profile' exact render={(props) => <Profile {...props} user={user} />}/>
-        <Route path='/app/sign-up' exact component={SignUp}/>
-        <Route path='/app/login' exact render={(props) => <Login {...props} setUser={setUser}/>}/>
+        <Route path='/app/sign-up' exact render={(props) => <SignUp {...props} alerts={alerts} setAlerts={setAlerts}/>}/>
+        <Route path='/app/login' exact render={(props) => <Login {...props} setUser={setUser} alerts={alerts} setAlerts={setAlerts}/>}/>
         <Route path='/app/logout' exact render={(props) => <Logout {...props} setUser={setUser} />} />
       </Switch>
     </Router>

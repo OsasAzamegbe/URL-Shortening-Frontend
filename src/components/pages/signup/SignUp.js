@@ -7,7 +7,7 @@ import {validate} from '../../../utils/Validate'
 
 
 
-const SignUp = () => {
+const SignUp = ({alerts, setAlerts}) => {
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -77,9 +77,34 @@ const SignUp = () => {
                 }
             })
 
+            const data = await response.json()
+
             if(response.status === 201){
                 loginRedirect()
+                setAlerts({
+                    ...alerts,
+                    signup: {
+                        text: data.message,
+                        success: true
+                    }
+                })
+            } else{
+                setAlerts({
+                    ...alerts,
+                    signup: {
+                        text: data.message,
+                        success: false
+                    }
+                })
             }
+
+            setTimeout(() => {
+                setAlerts({
+                    ...alerts,
+                    signup: {}
+                })
+            }, 4000)
+        
         }   
     }
 
@@ -100,6 +125,15 @@ const SignUp = () => {
                 <p className='sign-up-subscription-heading'>
                 Sign Up
                 </p>
+
+                {
+                    alerts.signup ?
+                    <div className={`alert ${alerts.signup.success ? "alert-success" : null}`}>
+                        <p className="alert-text" >{alerts.signup.text}</p>
+                    </div>
+                    : null
+                }
+
                 <div >
                 <form onSubmit={submitHandler} className='sign-up-container'>
                     <input
