@@ -1,18 +1,26 @@
 .item {
     margin: 0.5rem;
     background: var(--pink-leaf);
-    font-size: 1.25rem;
-    color: var(--primary);
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 1s ease;
-    border-radius: 0.25rem;
+    border-radius: 0.25rem; 
 }
 
 .item li {
     flex: 1;
-}
-.item-item {
     padding: 8px 24px;
+}
+.item-text {
+    font-size: 1.25rem;
+    color: var(--primary);
+    line-height: 2rem;
+}
+
+.item-subtext{
+    font-size: 0.75rem;
+    color: var(--primary);
+    opacity: 80%;
 }

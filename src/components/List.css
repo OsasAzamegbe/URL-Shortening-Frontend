@@ -11,3 +11,16 @@
     padding: 0rem 0.5rem;
     text-decoration: none;
 }
+
+.list-heading-wrapper{
+    margin: 12px 0 12px 0;
+    padding: 12px;
+}
+
+.list-heading{
+    font-size: 1.5rem;
+}
+
+.list-list a{
+    text-decoration: none;
+}
