@@ -6,7 +6,7 @@ import './Login.css';
 import {validate} from '../../../utils/Validate'
 
 
-const Login = ({setUser}) => {
+const Login = ({setUser, alerts, setAlerts}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -81,7 +81,29 @@ const Login = ({setUser}) => {
                 localStorage.setItem('user', JSON.stringify(user))
                 setUser(user)
                 profileRedirect()
+                setAlerts({
+                    ...alerts,
+                    login: {
+                        text: data.message,
+                        success: true
+                    }
+                })
+            } else{
+                setAlerts({
+                    ...alerts,
+                    login: {
+                        text: data.message,
+                        success: false
+                    }
+                })
             }
+
+            setTimeout(() => {
+                setAlerts({
+                    ...alerts,
+                    login: {}
+                })
+            }, 4000)
         }
     }
     
@@ -95,6 +117,15 @@ const Login = ({setUser}) => {
                 <p className='login-subscription-heading'>
                 Login
                 </p>
+                
+                {
+                    alerts.login ?
+                    <div className={`alert ${alerts.login.success ? "alert-success" : null}`}>
+                        <p className="alert-text" >{alerts.login.text}</p>
+                    </div>
+                    : null
+                }
+
                 <div >
                 <form onSubmit={submitHandler} className='login-container'>
                     <input
