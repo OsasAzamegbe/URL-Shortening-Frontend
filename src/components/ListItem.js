@@ -11,7 +11,20 @@ const ListItem = ({item}) => {
         const text = urlTextRef.current.innerHTML
         navigator.clipboard.writeText(text)
         window.alert(`Copied "${text}" to clipboard!`)
-      };
+    };
+
+    const date = (dateInput) => {
+        const options = {
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric' 
+        }
+        const created = new Date(dateInput)
+        return created.toLocaleString("en-US", options)
+    }
 
     return (
         <div>
@@ -27,7 +40,7 @@ const ListItem = ({item}) => {
                                 {item.shortUrl}
                             </p>
                             <p className="item-subtext">
-                                {`created: ${item.dateCreated}`}
+                                {`created: ${date(item.dateCreated)}`}
                             </p>
                         </li>
                     </div> 
