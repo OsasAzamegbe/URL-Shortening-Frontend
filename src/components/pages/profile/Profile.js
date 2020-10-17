@@ -109,7 +109,7 @@ const Profile = ({user, alerts, setAlerts}) => {
                 setLongUrl={setLongUrl} />
 
                 <List 
-                heading={"Url List"}
+                heading={"Shortened URLs"}
                 items={urls}/>
             </div>            
         </div>

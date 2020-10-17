@@ -6,7 +6,7 @@ const ListItem = ({item}) => {
 
     return (
         <div className="item">
-            <li className={`item-item `} >{item.shortUrl} : {item.key}</li>
+            <li className={`item-item `} >{item.shortUrl}</li>
         </div> 
     );
 };
