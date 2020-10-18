@@ -33,10 +33,11 @@
 }
   
 .top-line {
-    color: var(--red);
+    color: var(--dark-red);
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;
+    font-family: 'Krona One', sans-serif;
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -44,14 +45,14 @@
   
 .heading {
     margin-bottom: 24px;
-    font-size: 48px;
-    line-height: 1.1;
+    font-size: 72px;
+    line-height: 84px;
     font-weight: 600;
     color: var(--off-white);
 }
   
 .dark {
-    color: var(--background-dark);
+    color: var(--primary);
 }
   
 .darkBg {
@@ -61,8 +62,9 @@
 .home__home-subtitle {
     max-width: 440px;
     margin-bottom: 35px;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    line-height: 28px;
 }
   
 .home__home-img-wrapper {
