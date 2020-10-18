@@ -28,7 +28,7 @@ const ListItem = ({item}) => {
 
     return (
         <div>
-            <div className="row">
+            <div className="rows">
                 <Link 
                 to={item.url.slice(6)}
                 target="_blank">

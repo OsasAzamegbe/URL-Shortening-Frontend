@@ -51,7 +51,7 @@ body {
   
 }
 
-.row {
+.rows {
   display: inline-flex;
   height: 100%;
   align-items: center;

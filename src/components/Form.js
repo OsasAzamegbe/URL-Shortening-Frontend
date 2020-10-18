@@ -18,7 +18,7 @@ const Form = ({setLongUrl}) => {
     }
 
     return (
-        <div>
+        <div className="form">
             <form onSubmit={submitTodoHandler} >
                 <input onChange={inputTextHandler} value={inputText} type="url" placeholder="paste URL" required />
                 <Button type="submit" children="Shorten" buttonColor="red" buttonSize="btn--large"/>

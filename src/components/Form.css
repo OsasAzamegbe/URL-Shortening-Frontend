@@ -6,6 +6,9 @@ form input{
     border-radius: 4px;
     width: 60vw;
 }
+.form{
+    padding: 2rem;
+}
 
 @media screen and (max-width: 820px){
     form input {
