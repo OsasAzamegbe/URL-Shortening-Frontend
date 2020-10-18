@@ -1,6 +1,7 @@
 .home__home-section {
     color: var(--primary);
     padding: 64px 0;
+    width: 100%;
 }
   
 .home__home-row {
@@ -50,11 +51,11 @@
 }
   
 .dark {
-    color: var(--dark-blue);
+    color: var(--background-dark);
 }
   
 .darkBg {
-    background-color: var(--dark-blue);
+    background-color: var(--background-dark);
 }
   
 .home__home-subtitle {
