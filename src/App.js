@@ -7,6 +7,7 @@ import Profile from './components/pages/profile/Profile'
 import Login from './components/pages/login/Login'
 import Logout from './components/pages/logout/Logout'
 import Home from './components/pages/home/Home'
+import HomeRedirect from './components/pages/home/HomeRedirect'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Router>
       <Navbar user={user} />
       <Switch>
+        <Route path='/' exact component={HomeRedirect} />
         <Route path='/app' exact component={Home}/>
         <Route path='/app/profile' exact render={(props) => <Profile {...props} user={user} alerts={alerts} setAlerts={setAlerts}/>}/>
         <Route path='/app/sign-up' exact render={(props) => <SignUp {...props} alerts={alerts} setAlerts={setAlerts}/>}/>
