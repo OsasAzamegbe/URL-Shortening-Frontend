@@ -58,7 +58,7 @@ const SignUp = ({alerts, setAlerts}) => {
 
     const postSignUp = async () => {
         if (errorsAbsent() && username && email && password){
-            const url = `http://localhost:5000/api/v1/register`
+            const url = `/api/v1/register`
             const postData = {
                 username,
                 email,

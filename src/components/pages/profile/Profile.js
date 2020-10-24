@@ -17,7 +17,7 @@ const Profile = ({user, alerts, setAlerts}) => {
             if (loggedInUser) {
                 const foundUser = JSON.parse(loggedInUser);
                 const token = foundUser.token
-                const url = `http://localhost:5000/api/v1/shorten`
+                const url = `/api/v1/shorten`
                 const body = {
                     "url": longUrl
                 }
@@ -68,7 +68,7 @@ const Profile = ({user, alerts, setAlerts}) => {
 
                 const foundUser = JSON.parse(loggedInUser);
                 const token = foundUser.token
-                const url = `http://localhost:5000/api/v1/shorten`
+                const url = `/api/v1/shorten`
                 const response = await fetch(url,{
                     method: "GET",
                     headers: {

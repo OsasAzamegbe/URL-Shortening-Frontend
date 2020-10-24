@@ -57,7 +57,7 @@ const Login = ({setUser, alerts, setAlerts}) => {
 
     const postLogin = async () => {
         if (errorsAbsent() && email && password) {
-            const url = `http://localhost:5000/api/v1/login`
+            const url = `/api/v1/login`
             const postData = {
                 email,
                 password
@@ -70,7 +70,8 @@ const Login = ({setUser, alerts, setAlerts}) => {
                 method: "POST",
                 body: JSON.stringify(postData),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "accepts": "application/json"
                 }
             })
 
