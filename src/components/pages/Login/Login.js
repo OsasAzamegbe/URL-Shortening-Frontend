@@ -71,7 +71,6 @@ const Login = ({setUser, alerts, setAlerts}) => {
                 body: JSON.stringify(postData),
                 headers: {
                     "Content-Type": "application/json",
-                    "accepts": "application/json"
                 }
             })
 
