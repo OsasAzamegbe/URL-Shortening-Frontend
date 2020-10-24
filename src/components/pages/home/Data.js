@@ -8,7 +8,7 @@ const sectionOneObj = {
     description: "Welcome to Shorten. This is a URL shortening service for creating short links, that are highly available, on the fly!",
     buttonLabel: "Create A Free Account",
     imgStart: false,
-    img: "images/svg-1.svg",
+    img: "images/homepage.png",
     alt: "Home page illustration"
 }
 

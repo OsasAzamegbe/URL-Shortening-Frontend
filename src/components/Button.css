@@ -63,7 +63,7 @@
     transition: all 0.3s ease-out;
     background: var(--red);
     color: var(--primary);
-    border: none;
+    border: 1px solid var(--red);
 }
 
 .btn--wide:hover{
